@@ -1,20 +1,20 @@
-import dotenv from 'dotenv';
-import path from 'path';
-import Joi from 'joi';
+import dotenv from 'dotenv'
+import path from 'path'
+import Joi from 'joi'
 
-dotenv.config({ path: path.join(__dirname, '../../.env') });
+dotenv.config({ path: path.join(__dirname, '../../.env') })
 
 const envVarsSchema = Joi.object()
   .keys({
     NODE_ENV: Joi.string().valid('production', 'development', 'test', 'stage').required(),
     MONGODB_URL: Joi.string().required().description('Mongo DB url')
   })
-  .unknown();
+  .unknown()
 
-const { value: envVars, error } = envVarsSchema.prefs({ errors: { label: 'key' } }).validate(process.env);
+const { value: envVars, error } = envVarsSchema.prefs({ errors: { label: 'key' } }).validate(process.env)
 
 if (error) {
-  throw new Error(`Config validation error: ${error.message}`);
+  throw new Error(`Config validation error: ${error.message}`)
 }
 
 export const config = {
@@ -24,4 +24,4 @@ export const config = {
   server: {
     port: envVars.SERVER_PORT ? Number(envVars.SERVER_PORT) : 5000
   }
-};
+}
