@@ -1,0 +1,22 @@
+FROM node:16
+
+# Create app directory
+RUN mkdir -p /usr/src/node-app && chown -R node:node /usr/src/node-app
+WORKDIR /usr/src/node-app
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json yarn.lock ./
+
+USER node
+
+RUN yarn install --pure-lockfile
+# If you are building your code for production
+# RUN npm ci --only=production
+
+# Bundle app source
+COPY --chown=node:node . .
+
+EXPOSE 5080
+CMD [ "node_modules/nodemon/bin/nodemon.js"]
