@@ -1,3 +1,6 @@
 {
-  "*.ts": "eslint . --ext .ts --fix"
+  "*.ts": [
+    "eslint . --ext .ts --fix",
+    "git add"
+  ]
 }
