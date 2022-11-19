@@ -8,7 +8,8 @@
     "build": "rm -rf build/ && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
-    "lint": "eslint . --ext .ts --fix"
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +28,7 @@
     "@typescript-eslint/parser": "^5.43.0",
     "eslint": "^8.28.0",
     "husky": "^8.0.2",
+    "lint-staged": "^13.0.3",
     "nodemon": "^2.0.20",
     "prettier": "^2.7.1",
     "ts-node": "^10.9.1",
