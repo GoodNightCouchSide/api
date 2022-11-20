@@ -7,6 +7,8 @@ services:
       dockerfile: Dockerfile.development
     depends_on:
       - mongo
+    ports:
+      - '${SERVER_PORT}:${SERVER_PORT}'
     environment:
       - MONGODB_URL=mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@mongo:${MONGO_PORT}/${MONGO_DATABASE_NAME}
       - NODE_ENV=development

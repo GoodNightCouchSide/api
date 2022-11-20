@@ -7,7 +7,7 @@ import { ApiError } from './library/ApiError'
 import Logging, { logRequest } from './library/Logging'
 import { errorConverter, errorHandler } from './library/middlewares/error'
 import { apiRules } from './library/utils'
-import eventRouters from './routes/Event'
+import v1Api from './routes/v1'
 
 const router = express()
 
@@ -28,10 +28,8 @@ const StartServer = () => {
   router.use(logRequest)
   router.use(apiRules)
 
-  router.use('/event', eventRouters)
+  router.use('/v1', v1Api)
 
-  /** Healthcheck */
-  router.get('/ping', (req, res) => res.status(200).json({ message: 'pong' }))
   router.use((req: Request, res: Response, next: NextFunction) => next(new ApiError(NOT_FOUND, 'Not found')))
   router.use(errorConverter)
   router.use(errorHandler)

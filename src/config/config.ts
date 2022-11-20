@@ -17,11 +17,14 @@ if (error) {
   throw new Error(`Config validation error: ${error.message}`)
 }
 
+const serverPort = envVars.SERVER_PORT ? Number(envVars.SERVER_PORT) : 5000
+
 export const config = {
   mongo: {
     url: envVars.MONGODB_URL
   },
   server: {
-    port: envVars.SERVER_PORT ? Number(envVars.SERVER_PORT) : 5000
+    port: serverPort,
+    swaggerUrl: `http://localhost:${serverPort}`
   }
 }

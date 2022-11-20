@@ -20,5 +20,3 @@ export const pick = (object: { [key: string]: unknown }, keys: Array<string>) =>
     return obj
   }, {})
 }
-
-module.exports = pick
