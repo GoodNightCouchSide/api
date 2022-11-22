@@ -1,5 +1,5 @@
 import express from 'express'
-import EventRoutes from './Event'
+import EventRoutes from './EventRoute'
 import DocsRoutes from './Docs'
 
 const router = express.Router()

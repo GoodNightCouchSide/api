@@ -12,8 +12,10 @@ export const apiRules = (req: Request, res: Response, next: NextFunction) => {
   next()
 }
 
-export const pick = (object: { [key: string]: unknown }, keys: Array<string>) => {
-  return keys.reduce((obj: { [key: string]: unknown }, key: string) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const pick = (object: Record<string, any>, keys: Array<string>) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return keys.reduce((obj: Record<string, any>, key: string) => {
     if (object && Object.prototype.hasOwnProperty.call(object, key)) {
       obj[key] = object[key]
     }

@@ -7,7 +7,14 @@ dotenv.config({ path: path.join(__dirname, '../../.env') })
 const envVarsSchema = Joi.object()
   .keys({
     NODE_ENV: Joi.string().valid('production', 'development', 'test', 'stage').required(),
-    MONGODB_URL: Joi.string().required().description('Mongo DB url')
+    MONGODB_URL: Joi.string()
+      .when('NODE_ENV', {
+        is: 'test',
+        then: Joi.optional(),
+        otherwise: Joi.required()
+      })
+      .description('Mongo DB url'),
+    SERVER_PORT: Joi.number().positive().default(5000)
   })
   .unknown()
 
@@ -17,7 +24,7 @@ if (error) {
   throw new Error(`Config validation error: ${error.message}`)
 }
 
-const serverPort = envVars.SERVER_PORT ? Number(envVars.SERVER_PORT) : 5000
+const serverPort = Number(envVars.SERVER_PORT)
 
 export const config = {
   mongo: {
