@@ -18,7 +18,9 @@ const envVarsSchema = Joi.object()
   })
   .unknown()
 
-const { value: envVars, error } = envVarsSchema.prefs({ errors: { label: 'key' } }).validate(process.env)
+const { value: envVars, error } = envVarsSchema
+  .prefs({ errors: { label: 'key' } })
+  .validate(process.env)
 
 if (error) {
   throw new Error(`Config validation error: ${error.message}`)
@@ -27,6 +29,7 @@ if (error) {
 const serverPort = Number(envVars.SERVER_PORT)
 
 export const config = {
+  nodeEnv: envVars.NODE_ENV,
   mongo: {
     url: envVars.MONGODB_URL
   },

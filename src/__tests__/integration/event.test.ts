@@ -34,10 +34,16 @@ describe('event', () => {
   describe('create event route', () => {
     describe('given event body to create a new event', () => {
       it('should return a 201 created status', async () => {
-        const fakeEvent = eventFixtures.genrateFakeEvents(1)[0]
+        const fakeEvent = eventFixtures.generateFakeEvents(1)[0]
         const { statusCode, body } = await supertest(app).post('/v1/event').send(fakeEvent)
         expect(statusCode).toBe(CREATED)
-        expect(body).toEqual({ ...fakeEvent, _id: expect.any(String), createdAt: expect.any(String), updatedAt: expect.any(String), __v: 0 })
+        expect(body).toEqual({
+          ...fakeEvent,
+          _id: expect.any(String),
+          createdAt: expect.any(String),
+          updatedAt: expect.any(String),
+          __v: 0
+        })
       })
     })
     describe('given a wrong event body to create a new event', () => {

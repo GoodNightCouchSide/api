@@ -27,8 +27,15 @@ const router = express.Router()
  *                      schema:
  *                          $ref: '#/components/schemas/Event'
  */
-router.route('/').post(ValidateSchema(EventValidations.eventSchema), EventController.createEvent).get(EventController.getAllEvents)
+router
+  .route('/')
+  .post(ValidateSchema(EventValidations.eventSchema), EventController.createEvent)
+  .get(EventController.getAllEvents)
 
-router.route('/:eventId').get(EventController.getEvent).patch(EventController.updateEvent).delete(EventController.deleteEvent)
+router
+  .route('/:eventId')
+  .get(EventController.getEvent)
+  .patch(EventController.updateEvent)
+  .delete(EventController.deleteEvent)
 
 export = router

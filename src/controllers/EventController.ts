@@ -12,7 +12,9 @@ const createEvent = async (req: Request, res: Response) => {
 const getEvent = (req: Request, res: Response) => {
   const eventId = req.params.eventId
   return Event.findById(eventId)
-    .then((event) => (event ? res.status(OK).json({ event }) : res.status(NOT_FOUND).json({ message: 'Not found' })))
+    .then((event) =>
+      event ? res.status(OK).json({ event }) : res.status(NOT_FOUND).json({ message: 'Not found' })
+    )
     .catch((error) => {
       Logging.error(error)
       res.status(500).json({ error })
@@ -40,7 +42,9 @@ const updateEvent = (req: Request, res: Response) => {
 const deleteEvent = (req: Request, res: Response) => {
   const eventId = req.params.eventId
   return Event.findByIdAndDelete(eventId)
-    .then((event) => (event ? res.status(NO_CONTENT).send() : res.status(NOT_FOUND).json({ message: 'Not found' })))
+    .then((event) =>
+      event ? res.status(NO_CONTENT).send() : res.status(NOT_FOUND).json({ message: 'Not found' })
+    )
     .catch((error) => res.status(500).json({ error }))
 }
 

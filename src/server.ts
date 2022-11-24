@@ -17,7 +17,9 @@ const createServer = () => {
 
   app.use('/v1', v1Api)
 
-  app.use((req: Request, res: Response, next: NextFunction) => next(new ApiError(NOT_FOUND, 'Not found')))
+  app.use((req: Request, res: Response, next: NextFunction) =>
+    next(new ApiError(NOT_FOUND, 'Not found'))
+  )
   app.use(errorConverter)
   app.use(errorHandler)
 

@@ -4,10 +4,16 @@ import { Error } from 'mongoose'
 import { ApiError } from '../ApiError'
 import Logging from '../Logging'
 
-export const errorConverter = (err: ApiError | Error, req: Request, res: Response, next: NextFunction) => {
+export const errorConverter = (
+  err: ApiError | Error,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   let error = err
   if (!(error instanceof ApiError)) {
-    const statusCode = error instanceof Error ? httpStatus.BAD_REQUEST : httpStatus.INTERNAL_SERVER_ERROR
+    const statusCode =
+      error instanceof Error ? httpStatus.BAD_REQUEST : httpStatus.INTERNAL_SERVER_ERROR
     const message = String(httpStatus[statusCode])
     error = new ApiError(statusCode, message, false, err.stack)
   }

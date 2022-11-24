@@ -9,7 +9,11 @@ mongoose
   .then(() => {
     Logging.info('connected to mongodb')
     const app = createServer()
-    http.createServer(app).listen(config.server.port, () => Logging.info(`Server is running on Port ${config.server.port}`))
+    http
+      .createServer(app)
+      .listen(config.server.port, () =>
+        Logging.info(`Server is running on Port ${config.server.port}`)
+      )
   })
   .catch((error) => {
     Logging.error('Unable to connect to mongodb')

@@ -17,7 +17,9 @@ export const ValidateSchema = (schema: IValidateSchema) => {
     Object.keys(validSchema).forEach((key) => {
       const { error, value } = validSchema[key].validate(object[key])
       if (error) {
-        const errorMessage = error.details.map((details: { message: string }) => details.message).join(', ')
+        const errorMessage = error.details
+          .map((details: { message: string }) => details.message)
+          .join(', ')
         return next(new ApiError(httpStatus.BAD_REQUEST, errorMessage))
       }
       Object.assign(req, value)
