@@ -1,0 +1,82 @@
+openapi: 3.0.0
+info:
+  title: Good Night Couch Side Rest Api Docs
+  version: 1.0.0
+servers:
+  - url: http://localhost:5080/v1
+paths:
+  /event:
+    get:
+      tags:
+        - Event
+      summary: Get All Events
+      description: Get All Events
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+  /genre:
+    get:
+      tags:
+        - Genre
+      summary: Get All Genres
+      description: Get All Genres
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Genre'
+  /ping:
+    get:
+      tags:
+        - Healtcheck
+      description: Responds pong if the app is up and running
+      responses:
+        '200':
+          description: Retrun pong
+components:
+  schemas:
+    Artist:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        genre:
+          type: array
+          items:
+            type: string
+      example:
+        id: uuid
+        name: Artist Name
+    Event:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      example:
+        id: uuid
+        name: Event Name
+    Genre:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      example:
+        id: uuid
+        name: Genre Name
+tags:
+  - name: Event
+    description: Event
+  - name: Genre
+    description: Genre
