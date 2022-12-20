@@ -1,5 +1,6 @@
 import express, { IRouter } from 'express'
 import EventRoutes from './EventRoute'
+import GenreRoutes from './GenreRoute'
 import DocsRoutes from './Docs'
 import SeedingRoutes from './SeedingRoute'
 import { config } from '../../config/config'
@@ -13,7 +14,8 @@ interface IRoute {
 
 const defaultRoutes = [
   { path: '/event', route: EventRoutes },
-  { path: '/docs', route: DocsRoutes }
+  { path: '/docs', route: DocsRoutes },
+  { path: '/genre', route: GenreRoutes }
 ]
 
 const notForeProduction = [{ path: '/seeding', route: SeedingRoutes }]

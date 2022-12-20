@@ -1,13 +1,13 @@
 import { NextFunction, Request, Response } from 'express'
 import httpStatus from 'http-status'
-import { ObjectSchema } from 'joi'
+import { ObjectSchema, ArraySchema } from 'joi'
 import { ApiError } from '../ApiError'
 import { pick } from '../utils'
 
 export interface IValidateSchema {
   params?: ObjectSchema
   query?: ObjectSchema
-  body?: ObjectSchema
+  body?: ObjectSchema | ArraySchema
 }
 
 export const ValidateSchema = (schema: IValidateSchema) => {
