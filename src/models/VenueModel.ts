@@ -14,7 +14,7 @@ export interface IVenue {
 export interface IVenueSchema extends IVenue, Document {}
 
 const VenueSchema: Schema = new Schema({
-  name: { type: String, required: true },
+  name: { type: String, required: true, unique: true, trim: true },
   address: {
     street: { type: String },
     buildingNumber: { type: String },

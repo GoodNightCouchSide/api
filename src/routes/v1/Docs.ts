@@ -1,6 +1,7 @@
-import express from 'express'
+import express, { Request, Response } from 'express'
 import swaggerJSDoc, { Options } from 'swagger-jsdoc'
 import { serve, setup } from 'swagger-ui-express'
+import yaml from 'js-yaml'
 import { version } from '../../../package.json'
 import { config } from '../../config/config'
 
@@ -27,5 +28,14 @@ router.get(
     explorer: true
   })
 )
+router.get('/swagger.json', (req: Request, res: Response) => {
+  res.setHeader('Content-Type', 'application/json')
+  res.status(200).send(specs)
+})
+router.get('/swagger.yaml', (req: Request, res: Response) => {
+  const yamlSpec = yaml.dump(specs)
+  res.setHeader('Content-Type', 'text/plain')
+  res.status(200).send(yamlSpec)
+})
 
 export = router

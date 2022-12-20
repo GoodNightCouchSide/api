@@ -24,7 +24,7 @@ export interface IEventModel extends IEvent, Document {}
 
 const EventSchema: Schema = new Schema(
   {
-    name: { type: String, required: true }
+    name: { type: String, required: true, unique: true, trim: true }
   },
   {
     timestamps: true
