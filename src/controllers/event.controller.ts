@@ -1,8 +1,8 @@
 import { Request, Response } from 'express'
 import { CREATED, NOT_FOUND, NO_CONTENT, OK } from 'http-status'
 import Logging from '../library/Logging'
-import Event from '../models/EventModel'
-import EventService from '../services/EventService'
+import Event from '../models/event.model'
+import EventService from '../services/event.service'
 
 const createEvent = async (req: Request, res: Response) => {
   const event = await EventService.createEvent(req.body)

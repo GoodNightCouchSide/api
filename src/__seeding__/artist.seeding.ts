@@ -1,8 +1,8 @@
 import { Request, Response } from 'express'
 import Joi from 'joi'
-import { IArtist, TYPES } from '../models/ArtistModel'
-import GenreModel from '../models/GenreModel'
-import genre from './GenreSeeding'
+import { IArtist, TYPES } from '../models/artist.model'
+import GenreModel from '../models/genre.model'
+import genre from './genre.seeding'
 
 const ARTISTS = {
   APTERA: {

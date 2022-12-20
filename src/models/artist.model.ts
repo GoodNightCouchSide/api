@@ -1,5 +1,5 @@
 import mongoose, { Document, Schema } from 'mongoose'
-import { IGenre } from './GenreModel'
+import { IGenre } from './genre.model'
 
 export interface IArtist {
   name: string

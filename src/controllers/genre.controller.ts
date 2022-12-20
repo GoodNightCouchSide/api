@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { OK } from 'http-status'
 import { pick } from '../library/utils'
-import GenreService from '../services/GenreService'
+import GenreService from '../services/genre.service'
 
 const getAllGenres = async (req: Request, res: Response) => {
   const query = pick(req.query, ['name'])

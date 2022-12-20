@@ -1,8 +1,8 @@
 import express, { IRouter } from 'express'
-import EventRoutes from './EventRoute'
-import GenreRoutes from './GenreRoute'
-import DocsRoutes from './Docs'
-import SeedingRoutes from './SeedingRoute'
+import EventRoutes from './event.route'
+import GenreRoutes from './genre.route'
+import DocsRoutes from './docs.route'
+import SeedingRoutes from './seeding.route'
 import { config } from '../../config/config'
 
 const router = express.Router()

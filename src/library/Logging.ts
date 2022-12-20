@@ -1,5 +1,6 @@
 import chalk from 'chalk'
 import { Request, Response, NextFunction } from 'express'
+import { config } from '../config/config'
 
 export default class Logging {
   public static log = (args: unknown) => this.info(args)
@@ -38,8 +39,9 @@ export default class Logging {
 }
 
 export const logRequest = (req: Request, res: Response, next: NextFunction) => {
+  if (config.nodeEnv === 'test') return next()
   Logging.info(
-    `Incomming -> Method: [${req.method}] - Url : [${req.url}] - IP: [${req.socket.remoteAddress}]`
+    `Incoming -> Method: [${req.method}] - Url : [${req.url}] - IP: [${req.socket.remoteAddress}]`
   )
   res.on('finish', () => {
     Logging.info(

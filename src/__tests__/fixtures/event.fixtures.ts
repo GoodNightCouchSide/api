@@ -1,4 +1,4 @@
-import Event, { IEvent } from '../../models/EventModel'
+import Event, { IEvent } from '../../models/event.model'
 
 const insertEvents = async (events: Array<IEvent>) => {
   await Event.insertMany(events)

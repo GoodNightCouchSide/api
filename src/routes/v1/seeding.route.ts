@@ -1,7 +1,7 @@
 import express from 'express'
-import venues from '../../__seeding__/VenueSeeding'
-import genres from '../../__seeding__/GenreSeeding'
-import artists from '../../__seeding__/ArtistSeeding'
+import venues from '../../__seeding__/venue.seeding'
+import genres from '../../__seeding__/genre.seeding'
+import artists from '../../__seeding__/artist.seeding'
 import { ValidateSchema } from '../../library/middlewares/ValidateSchema'
 
 const router = express.Router()

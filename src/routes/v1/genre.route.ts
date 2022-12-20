@@ -1,6 +1,6 @@
 import express from 'express'
 import { ValidateSchema } from '../../library/middlewares/ValidateSchema'
-import GenreController from '../../controllers/GenreController'
+import GenreController from '../../controllers/genre.controller'
 import genreValidations from '../../validations/genre.validations'
 
 const router = express.Router()

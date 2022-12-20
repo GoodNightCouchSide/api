@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { INTERNAL_SERVER_ERROR, OK } from 'http-status'
 import { ApiError } from '../library/ApiError'
-import GenreModel from '../models/GenreModel'
+import GenreModel from '../models/genre.model'
 
 const GENRES = {
   ROCK: {

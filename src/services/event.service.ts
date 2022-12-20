@@ -1,4 +1,4 @@
-import EventModel, { IEvent } from '../models/EventModel'
+import EventModel, { IEvent } from '../models/event.model'
 
 /**
  * Create a new Event

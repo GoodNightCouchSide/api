@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { CREATED } from 'http-status'
 import Logging from '../library/Logging'
-import VenueModel from '../models/VenueModel'
+import VenueModel from '../models/venue.model'
 
 const venues = {
   CASSIOPEIA: {

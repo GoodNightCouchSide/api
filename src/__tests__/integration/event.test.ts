@@ -3,7 +3,7 @@ import supertest from 'supertest'
 import createServer from '../../server'
 import { MongoMemoryServer } from 'mongodb-memory-server'
 import mongoose from 'mongoose'
-import eventFixtures from '../fixtures/eventFixtures'
+import eventFixtures from '../fixtures/event.fixtures'
 
 const app = createServer()
 

@@ -1,7 +1,7 @@
 import express from 'express'
-import EventController from '../../controllers/EventController'
+import EventController from '../../controllers/event.controller'
 import { ValidateSchema } from '../../library/middlewares/ValidateSchema'
-import EventValidations from '../../validations/EventValidations'
+import EventValidations from '../../validations/event.validations'
 
 const router = express.Router()
 
