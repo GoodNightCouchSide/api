@@ -18,7 +18,7 @@ const createServer = () => {
   app.use('/v1', v1Api)
 
   app.use((req: Request, res: Response, next: NextFunction) =>
-    next(new ApiError(NOT_FOUND, 'Not found'))
+    next(new ApiError(NOT_FOUND, `Api route '${req.url}' does not exist`))
   )
   app.use(errorConverter)
   app.use(errorHandler)
